@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akwantufuo Travel Consult | It's Your Time To Travel</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Akwantufuo Travel Consult is your premier travel agency in Agona Swedru, Central Region, Ghana, offering flight bookings, visa support, study abroad programs, and destination guidance.">
+    <meta name="keywords" content="travel agency Agona Swedru, Akwantufuo Travel Consult, study abroad Ghana, visa support Ghana, flight booking Central Region">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-contacts">
+            <span>📞 +233 33 209 7330</span>
+            <span>📞 +233 50 928 1975</span>
+            <span>✉️ akwantufuo@outlook.com</span>
+        </div>
+        <div class="social-icons-top">
+            <span>📍 Agona Swedru, Ghana</span>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://tiktok.com" target="_blank">TikTok</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+
+    <!-- UX Toolbar: Free Checklist Download Banner -->
+    <div class="ux-toolbar">
+        <div class="checklist-download-banner">
+            <span>📥 Need preparation guidance?</span>
+            <a href="#contact" onclick="alert('Checklist request noted! Our team will send the Student Visa PDF guide to your WhatsApp or Email.')">Download Student Visa Checklist (PDF)</a>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="#home" class="logo-container">
+                <img src="image_11.png" alt="Akwantufuo Travel Consult Logo" class="logo-img">
+                <div class="logo-text">AKWANTUFUO <span>Travel Consult</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#quiz">Eligibility Quiz</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#estimator">Estimator</a></li>
+                <li><a href="#referral">Referral</a></li>
+                <li><a href="#blog">News</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Testimonials</a></li>
+                <li><a href="#contact" class="nav-cta">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Slider Section -->
+    <section id="home" class="hero-slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80')">
+            <div class="slide-content">
+                <h1>It's Your Time To <span>Travel</span></h1>
+                <p>Your ultimate destination for global mobility, study abroad programs, flights, and international tours.</p>
+                <a href="#contact" class="btn">Get Started Today</a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80')">
+            <div class="slide-content">
+                <h1>Unlock <span>Global Education</span></h1>
+                <p>Seamless university admissions and student visa processing for top destinations worldwide.</p>
+                <a href="#contact" class="btn">Explore Study Abroad</a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80')">
+            <div class="slide-content">
+                <h1>Fast & Reliable <span>Ticketing</span></h1>
+                <p>Secure the best airline deals, seamless reservations, and professional trip itineraries.</p>
+                <a href="#contact" class="btn">Book a Flight</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Credibility Badges Ribbon -->
+    <div class="trust-ribbon">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-icon">🏛️</div>
+                <div class="trust-text">
+                    <h5>Official Consult</h5>
+                    <p>Verified Agency in Agona Swedru</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">✅</div>
+                <div class="trust-text">
+                    <h5>99% Accuracy Review</h5>
+                    <p>Rigorous document vetting</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🛂</div>
+                <div class="trust-text">
+                    <h5>Embassy Guidance</h5>
+                    <p>Direct counseling support</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">⭐</div>
+                <div class="trust-text">
+                    <h5>Trusted Success</h5>
+                    <p>Hundreds of satisfied travelers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Visa Eligibility Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+            <div class="section-title" style="margin-bottom: 25px;">
+                <h2>Find Your Visa Pathway</h2>
+                <p>Take our 2-step interactive quiz to find your ideal international travel destination</p>
+            </div>
+            
+            <div class="quiz-card">
+                <!-- Step 1: Goal -->
+                <div class="quiz-step active" id="quizStep1">
+                    <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: 10px;">Step 1: What is your primary travel goal?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-opt-btn" onclick="setQuizGoal('Study Abroad')">🎓 Study Abroad</div>
+                        <div class="quiz-opt-btn" onclick="setQuizGoal('Work Abroad')">💼 Work Abroad</div>
+                        <div class="quiz-opt-btn" onclick="setQuizGoal('Tourism / Vacation')">🏖️ Tourism / Vacation</div>
+                        <div class="quiz-opt-btn" onclick="setQuizGoal('Business Trip')">✈️ Business Trip</div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Destination -->
+                <div class="quiz-step" id="quizStep2">
+                    <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: 10px;">Step 2: Preferred destination country?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-opt-btn" onclick="setQuizDest('United Kingdom')">🇬🇧 United Kingdom</div>
+                        <div class="quiz-opt-btn" onclick="setQuizDest('Canada')">🇨🇦 Canada</div>
+                        <div class="quiz-opt-btn" onclick="setQuizDest('United States')">🇺🇸 United States</div>
+                        <div class="quiz-opt-btn" onclick="setQuizDest('Turkey')">🇹🇷 Turkey</div>
+                        <div class="quiz-opt-btn" onclick="setQuizDest('China')">🇨🇳 China</div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Result -->
+                <div class="quiz-step" id="quizStep3" style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🎯</div>
+                    <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 10px;">Your Profile is Ready!</h3>
+                    <p id="quizResultText" style="color: #64748b; font-size: 1.05rem; margin-bottom: 25px;">Based on your inputs, you are a strong candidate for visa support.</p>
+                    <a id="quizWhatsAppBtn" href="#" target="_blank" class="btn" style="padding: 12px 28px; font-size: 1rem;">Unlock Custom Roadmap on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+        <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>About Akwantufuo Travel Consult</h3>
+                    <p>Based in the heart of Agona Swedru, Central Region, Ghana, **Akwantufuo Travel Consult** is your trusted partner for stress-free international travel, education, and professional documentation assistance.</p>
+                    <p>Our dedicated team bridges the gap between ambitious travelers and global opportunities. Whether you are pursuing a university degree abroad, booking a business flight, or seeking dependable visa guidance, we provide direct, honest, and expert-led support every step of the way.</p>
+                    <a href="#contact" class="btn" style="padding: 10px 24px; font-size: 0.95rem;">Speak With Our Team</a>
+                </div>
+                <div class="about-img-box">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Our Team at Work" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Destination Explorer Section -->
+    <section id="destinations" class="destinations-section">
+        <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+            <div class="section-title">
+                <h2>Explore Popular Destinations</h2>
+                <p>Click a destination to jumpstart your application inquiry via WhatsApp</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card" onclick="openWhatsAppInquiry('United Kingdom')">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" alt="United Kingdom" class="destination-img">
+                    <div class="destination-info">
+                        <h4>United Kingdom</h4>
+                        <p>Study, Work & Visit Visa Support</p>
+                        <span class="dest-btn">Inquire for UK →</span>
+                    </div>
+                </div>
+                <div class="destination-card" onclick="openWhatsAppInquiry('Canada')">
+                    <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=600&q=80" alt="Canada" class="destination-img">
+                    <div class="destination-info">
+                        <h4>Canada</h4>
+                        <p>University Admission & Study Permits</p>
+                        <span class="dest-btn">Inquire for Canada →</span>
+                    </div>
+                </div>
+                <div class="destination-card" onclick="openWhatsAppInquiry('United States')">
+                    <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=600&q=80" alt="United States" class="destination-img">
+                    <div class="destination-info">
+                        <h4>United States</h4>
+                        <p>F1 Student Visas & Tour Packages</p>
+                        <span class="dest-btn">Inquire for USA →</span>
+                    </div>
+                </div>
+                <div class="destination-card" onclick="openWhatsAppInquiry('Turkey')">
+                    <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=600&q=80" alt="Turkey" class="destination-img">
+                    <div class="destination-info">
+                        <h4>Turkey</h4>
+                        <p>Business, Tourism & Study Visas</p>
+                        <span class="dest-btn">Inquire for Turkey →</span>
+                    </div>
+                </div>
+                <div class="destination-card" onclick="openWhatsAppInquiry('China')">
+                    <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=600&q=80" alt="China" class="destination-img">
+                    <div class="destination-info">
+                        <h4>China</h4>
+                        <p>Trade, Business & University Admissions</p>
+                        <span class="dest-btn">Inquire for China →</span>
+                    </div>
+                </div>
+                <div class="destination-card" onclick="openWhatsAppInquiry('Europe / Schengen')">
+                    <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=600&q=80" alt="Europe Schengen" class="destination-img">
+                    <div class="destination-info">
+                        <h4>Europe / Schengen</h4>
+                        <p>Holiday Tours & Conference Travel</p>
+                        <span class="dest-btn">Inquire for Europe →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Flow UX Section -->
+    <section id="steps" class="steps-section container" style="padding-top: 40px; padding-bottom: 40px; max-width: 100%;">
+        <div class="container" style="padding: 0;">
+            <div class="section-title" style="margin-bottom: 30px;">
+                <h2>How It Works</h2>
+                <p>Your stress-free journey to traveling abroad in 3 simple steps</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Choose Your Service</h4>
+                    <p>Select a study abroad program, visa counseling, or flight booking option on our platform or visit our Agona Swedru office.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Submit Details & Docs</h4>
+                    <p>Work with our expert consultants to securely file, verify, and complete all required travel document preparations.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Get Approved & Fly</h4>
+                    <p>Receive your visa approvals, flight tickets, and departure support ready for takeoff!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Services Section with Filter -->
+    <section id="services" class="container">
+        <div class="section-title">
+            <h2>Our Professional Services</h2>
+            <p>Explore our wide array of specialized travel and documentation assistance</p>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterServices('all')">All Services</button>
+            <button class="filter-btn" onclick="filterServices('travel')">Travel & Flights</button>
+            <button class="filter-btn" onclick="filterServices('study')">Study & Work</button>
+            <button class="filter-btn" onclick="filterServices('docs')">Documentation</button>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+            <!-- Dynamically populated interactive service cards -->
+        </div>
+    </section>
+
+    <!-- Interactive Processing Time Estimator Tool -->
+    <section id="estimator" class="estimator-section">
+        <div class="container" style="padding: 0;">
+            <div class="section-title" style="margin-bottom: 30px;">
+                <h2 style="color: var(--white);">Service Roadmap & Processing Estimator</h2>
+                <p style="color: #94a3b8;">Select a service category to preview estimated processing timelines.</p>
+            </div>
+            <div class="estimator-layout">
+                <div class="estimator-controls">
+                    <label for="estService">Select Service Category:</label>
+                    <select id="estService" onchange="calculateEstimate()">
+                        <option value="visa">Visa Application Support</option>
+                        <option value="study">Study Abroad Program</option>
+                        <option value="work">Work Abroad Program</option>
+                        <option value="ticketing">Flight & Ticketing</option>
+                    </select>
+
+                    <label for="estSpeed">Processing Speed Mode:</label>
+                    <select id="estSpeed" onchange="calculateEstimate()">
+                        <option value="standard">Standard Processing</option>
+                        <option value="express">Express Priority</option>
+                    </select>
+                </div>
+
+                <div class="roadmap-card">
+                    <h3>Processing Duration</h3>
+                    <div class="time-tag" id="estTime">3 - 6 Weeks</div>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px;" id="estDesc">Direct consulate appointment handling and application package review.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Referral Program Section -->
+    <section id="referral" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: var(--white); padding: 80px 20px; text-align: center;">
+        <div class="container" style="max-width: 900px; padding: 0;">
+            <div class="section-title" style="margin-bottom: 25px;">
+                <h2 style="color: var(--white);">The Akwantufuo Referral Club</h2>
+                <p style="color: #cbd5e1;">Fly together, save together! Earn rewards when you refer friends and family.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-top: 40px; text-align: left;">
+                <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 16px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 2.2rem; margin-bottom: 10px;">🎁</div>
+                    <h4 style="color: var(--accent); margin-bottom: 10px; font-size: 1.2rem;">For Past Clients (Referrers)</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.5;">Earn special rewards or free travel accessory kits when your referred family member or friend successfully completes a paid visa or study abroad application.</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 16px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 2.2rem; margin-bottom: 10px;">🏷️</div>
+                    <h4 style="color: var(--accent); margin-bottom: 10px; font-size: 1.2rem;">For New Clients (Referees)</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.5;">Receive special consultation perks on your initial appointment just by mentioning the name and phone number of the past client who referred you.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a href="https://wa.me/233242929381?text=Hello%20Akwantufuo%20Travel%20Consult,%20I%20want%20to%20join%20the%20Referral%20Program%20and%20refer%20someone!" 
+                   target="_blank" 
+                   class="btn" style="padding: 14px 32px; font-size: 1rem;">Join Referral Program on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog & Travel Updates Section -->
+    <section id="blog" class="blog-section">
+        <div class="container" style="padding-top: 40px; padding-bottom: 20px;">
+            <div class="section-title">
+                <h2>Travel News & Embassy Updates</h2>
+                <p>Stay informed with the latest visa announcements, scholarship windows, and policy shifts</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="UK Visa Policy" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">August 2026 • Embassy Update</div>
+                        <h4>UK Student Visa Changes: What You Need to Know</h4>
+                        <p>Essential breakdown of recent policy updates regarding dependent rules and financial maintenance requirements for student applicants.</p>
+                        <a href="#contact" class="blog-link">Read Consultation Guide →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80" alt="Scholarship Window" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">August 2026 • Scholarships</div>
+                        <h4>Top Fall University Deadlines for Canadian Admissions</h4>
+                        <p>Discover which Canadian institutions are currently accepting applications for upcoming semesters and how to prepare your transcripts.</p>
+                        <a href="#contact" class="blog-link">Explore Admissions →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80" alt="Flight Tips" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">July 2026 • Flight Booking</div>
+                        <h4>How to Secure Discounted International Airfares</h4>
+                        <p>Expert tips from our ticketing department on booking flight itineraries early to avoid seasonal price surges.</p>
+                        <a href="#contact" class="blog-link">Book Airfare →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="section-title">
+            <h2>Our Gallery & Video Highlights</h2>
+            <p>Take a look inside our operations, happy clients, and destination highlights</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Vacation Destination" loading="lazy">
+                <div class="gallery-overlay">🏖️ Holiday & Vacation Packages</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Study Abroad Success" loading="lazy">
+                <div class="gallery-overlay">🎓 Study Abroad Admissions</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80" alt="Flight & Ticketing" loading="lazy">
+                <div class="gallery-overlay">✈️ Flight Reservation & Ticketing</div>
+            </div>
+            <div class="gallery-item">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Travel Highlight Video" allowfullscreen></iframe>
+                <div class="gallery-overlay">🎥 Client Success Story Reel</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80" alt="Visa Support" loading="lazy">
+                <div class="gallery-overlay">🛂 Visa Counseling Session</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80" alt="Airport Pickup" loading="lazy">
+                <div class="gallery-overlay">🚗 Airport Pickup & Escort</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reviews" class="testimonials-section">
+        <div class="section-title" style="margin-bottom: 40px;">
+            <h2>What Our Clients Say</h2>
+            <p>Read success stories from travelers who trusted our consultancy</p>
+        </div>
+        <div class="testimonials-slider" id="testimonialsSlider">
+            <div class="testimonial-card active">
+                <p>"Akwantufuo Travel Consult made my study abroad process completely stress-free. From university admissions to my student visa in Agona Swedru, their team was exceptional!"</p>
+                <h4>Kofi Mensah</h4>
+                <span>Studying in UK</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"I booked my flight tickets and requested visa support through them. Their efficiency and professional customer service are unmatched. Highly recommended!"</p>
+                <h4>Abigail Appiah</h4>
+                <span>Traveler to Canada</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Very reliable office! They handled my passport assistance and business trip documentation smoothly without any hidden delays."</p>
+                <h4>Kwame Boateng</h4>
+                <span>Business Executive</span>
+            </div>
+        </div>
+
+        <div class="review-submission-box">
+            <h3>Share Your Experience</h3>
+            <form class="review-form" id="reviewForm" onsubmit="submitReview(event)">
+                <input type="text" id="reviewName" placeholder="Your Full Name" required>
+                <input type="text" id="reviewDestination" placeholder="Your Destination or Service (e.g. UK Study, Flight Booking)" required>
+                <textarea id="reviewText" rows="3" placeholder="Write your testimonial here..." required></textarea>
+                <button type="submit" class="btn" style="padding: 10px 20px; font-size: 0.95rem;">Submit Review</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faqs" class="container" style="padding: 60px 20px;">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Quick answers to common questions about our travel services</p>
+        </div>
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Where is Akwantufuo Travel Consult located? <span>+</span></div>
+                <div class="faq-answer">Our main office is located at 3 Police Station Road, Opposite ECG, Agona Swedru in the Central Region of Ghana. Our digital GPS address is CO-0007-2404.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">How long does visa application support take? <span>+</span></div>
+                <div class="faq-answer">Processing timelines vary depending on the destination country and embassy schedules, typically ranging from 2 to 6 weeks for standard processing.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Can you assist with university admissions abroad? <span>+</span></div>
+                <div class="faq-answer">Yes! We provide complete end-to-end support for study abroad programs, including matching you with top universities, handling applications, and processing student visas.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">How do I book a flight ticket? <span>+</span></div>
+                <div class="faq-answer">You can contact us via our booking form, send us a direct message on WhatsApp, or call our hotlines for immediate flight reservations and ticketing.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-wrapper">
+            <div class="contact-details">
+                <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 1.8rem;">Let's Plan Your Journey</h3>
+                <p style="color: #64748b; margin-bottom: 20px;">Fill out the form or chat directly with our customer line on WhatsApp for instant assistance.</p>
+                
+                <!-- Face-to-Face Walk-In Invitation -->
+                <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--accent); padding: 12px 15px; border-radius: 8px; margin-bottom: 20px;">
+                    <p style="color: var(--primary); font-size: 0.9rem; font-weight: 600;">🤝 Prefer a face-to-face consultation?</p>
+                    <p style="color: #64748b; font-size: 0.85rem; margin-top: 4px;">Walk straight into our Agona Swedru office during working hours—no appointment required for initial inquiries!</p>
+                </div>
+
+                <p><strong>Hotline:</strong><br>+233 50 928 1975</p>
+                <br>
+                <p><strong>Email Us:</strong><br>info@akwantufuo.com</p>
+            </div>
+            <div class="contact-form">
+                <form id="consultForm" action="https://formspree.io/f/akwantufuo" method="POST">
+                    <input type="text" name="name" id="name" placeholder="Full Name" required>
+                    <input type="text" name="phone" id="phone" placeholder="Phone Number" required>
+                    <select name="service" id="serviceSelect" required>
+                        <option value="">Select Interested Service</option>
+                    </select>
+                    <textarea name="message" id="message" rows="4" placeholder="Brief Inquiry Details" required></textarea>
+                    <button type="submit" class="btn" style="border: none; cursor: pointer; text-align: center;">Send Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Toast Notification Popup (Social Proof) -->
+    <div class="toast-notification" id="liveToast">
+        <div class="toast-icon" id="toastIcon">🌍</div>
+        <div class="toast-text">
+            <h6 id="toastTitle">Kofi from Swedru</h6>
+            <p id="toastDesc">Booked UK Visa support 10 mins ago</p>
+        </div>
+    </div>
+
+    <!-- Pulsing Floating WhatsApp Button & Auto Popup Chat Widget -->
+    <a href="https://wa.me/233242929381?text=Hello%20Akwantufuo%20Travel%20Consult,%20I%20would%20like%20to%20inquire%20about%20your%20services." 
+       class="whatsapp-float" 
+       id="mainWhatsAppBtn"
+       target="_blank" 
+       title="Chat with us on WhatsApp">
+        💬
+    </a>
+
+    <div class="chat-greeting-popup" id="chatPopup">
+        <strong>👋 Hello from Akwantufuo!</strong>
+        Need help with a visa, university admission, or flight booking today? Click WhatsApp below to chat!
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Office & Location</h4>
+                <ul>
+                    <li>🏢 3 Police Station Road, Opposite ECG</li>
+                    <li>📍 Agona Swedru – Central Region, Ghana</li>
+                    <li>📍 Digital GPS: CO-0007-2404</li>
+                    <li>📞 +233 33 209 7330 / +233 50 928 1975</li>
+                    <li>📧 akwantufuo@outlook.com</li>
+                </ul>
+                <div class="footer-map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.963842345!2d-0.6166!3d5.5333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzInMDAuMCJOIDDCsDM3JzAwLjAiVw!5e0!3m2!1sen!2sgh!4v1650000000000!5m2!1sen!2sgh" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#quiz">Eligibility Quiz</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#blog">News & Updates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal & Policies</h4>
+                <ul>
+                    <li><a href="#" onclick="alert('Terms & Conditions: All visa consultancy and ticketing service procedures are subject to embassy rulings and airline policy updates. Akwantufuo Travel Consult acts as an intermediary facilitator.')">Terms & Conditions</a></li>
+                    <li><a href="#" onclick="alert('Privacy Policy: We protect all client data, passport details, and documents with high-level confidentiality and secure processing protocols.')">Privacy Policy</a></li>
+                    <li><a href="#" onclick="alert('Refund Policy: Service consulting schedules are non-refundable once embassy applications or document filings have commenced.')">Refund Policy</a></li>
+                    <li><a href="#faqs">FAQ Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Working Hours</h4>
+                <ul>
+                    <li>Monday – Friday: 8:00 AM – 5:00 PM</li>
+                    <li>Saturday: 9:00 AM – 2:00 PM</li>
+                    <li>Sunday: Closed</li>
+                    <li style="margin-top: 15px;">
+                        <a href="https://facebook.com" target="_blank" style="margin-right: 12px; font-weight: 700;">Facebook</a>
+                        <a href="https://tiktok.com" target="_blank" style="margin-right: 12px; font-weight: 700;">TikTok</a>
+                        <a href="https://linkedin.com" target="_blank" style="font-weight: 700;">LinkedIn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Akwantufuo Travel Consult. All Rights Reserved. | Designed for Seamless Global Mobility.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Details Popup Modal -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">×</button>
+            <h3 id="modalTitle" style="color: var(--primary); margin-bottom: 10px;">Service Title</h3>
+            <p id="modalDesc" style="color: #64748b; margin-bottom: 20px;">Detailed descriptions go here.</p>
+            <a href="#contact" class="btn" onclick="closeModal()" style="display: block; text-align: center;">Book This Service</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script src="script.js"></script>
+</body>
+</html>
