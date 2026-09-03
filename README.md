@@ -10,11 +10,15 @@ index.html      Homepage — all sections
 terms.html      Terms & Conditions (placeholder — see note below)
 privacy.html    Privacy Policy (placeholder)
 refund.html     Refund Policy (placeholder)
-css/styles.css  All styling (design tokens, layout, components)
-js/main.js      All interactivity (nav, filters, flip cards, quiz,
+styles.css      All styling (design tokens, layout, components)
+main.js         All interactivity (nav, filters, flip cards, quiz,
                 estimator, FAQ accordion, contact form, WhatsApp
                 links, activity toast, scroll-reveal animation)
 ```
+
+Everything sits in **one flat folder** — no subfolders. Keep all
+seven files together in the same place, however you move or upload
+them, and it'll always work.
 
 ## Running it locally
 
@@ -59,7 +63,7 @@ To change any of these, use your editor's find-and-replace across all
 four `.html` files — there's no central config file in a plain-HTML
 site, so each mention is written out directly.
 
-**WhatsApp number**: set once, at the top of `js/main.js`:
+**WhatsApp number**: set once, near the top of `main.js`:
 
 ```js
 const WHATSAPP_NUMBER = "233509281975"; // digits only, country code first
