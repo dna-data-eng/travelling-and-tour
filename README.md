@@ -1,85 +1,96 @@
-# Akwantufuo Travel Consult — Website (Next.js)
+# Akwantufuo Travel Consult — Website (Plain HTML/CSS/JS)
 
-A rebuild of the Akwantufuo Travel Consult site as a proper Next.js
-project, so real business details can be dropped in through a `.env`
-file instead of being hardcoded in the source.
+No build step, no npm, no framework — just HTML, CSS and vanilla
+JavaScript. Deploy it by uploading the files as-is.
 
-## Getting started
+## Files
+
+```
+index.html      Homepage — all sections
+terms.html      Terms & Conditions (placeholder — see note below)
+privacy.html    Privacy Policy (placeholder)
+refund.html     Refund Policy (placeholder)
+css/styles.css  All styling (design tokens, layout, components)
+js/main.js      All interactivity (nav, filters, flip cards, quiz,
+                estimator, FAQ accordion, contact form, WhatsApp
+                links, activity toast, scroll-reveal animation)
+```
+
+## Running it locally
+
+You don't need a server for basic viewing — double-click `index.html`.
+For the contact form and any relative-path quirks to behave exactly
+like production, serve it locally instead:
 
 ```bash
-npm install
-cp .env.example .env.local   # then fill in real values
-npm run dev
+# Python (already on most machines)
+python3 -m http.server 8000
+
+# or Node, if you have it
+npx serve .
 ```
 
-Open http://localhost:3000 to view it.
-
-## Filling in your real details
-
-Every phone number, address, social link and map embed on the site
-comes from environment variables — see `.env.example` for the full
-list. Copy it to `.env.local` (already git-ignored, so real details
-never get committed) and fill in the real values. Anything left blank
-falls back to a clearly-marked placeholder like `[Phone number 1]` so
-it's obvious what's still missing.
-
-Key ones to set before launch:
-
-- `NEXT_PUBLIC_PHONE_PRIMARY`, `NEXT_PUBLIC_PHONE_SECONDARY`
-- `NEXT_PUBLIC_WHATSAPP_NUMBER` — digits only, country code first (e.g. `233241234567`)
-- `NEXT_PUBLIC_EMAIL`
-- `NEXT_PUBLIC_ADDRESS_LINE1`, `NEXT_PUBLIC_DIGITAL_GPS`
-- `NEXT_PUBLIC_FACEBOOK_URL` / `TIKTOK` / `LINKEDIN`
-- `NEXT_PUBLIC_MAP_EMBED_URL` — from Google Maps → Share → Embed a map
-
-## Other things to swap in before launch
-
-- **Testimonials** — `lib/data.ts` → `testimonials` array currently has
-  placeholder quotes. Replace with real client feedback once collected.
-- **Photos** — all images are hotlinked from Unsplash for now
-  (`lib/data.ts` and the component files). Swap the URLs for real photos
-  of your office, team and clients when you have them — drop files in
-  `public/images/` and reference them as `/images/your-file.jpg`.
-- **Contact form** — the form on the Contact section needs a relay
-  endpoint (e.g. [Formspree](https://formspree.io)) set via
-  `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT`. Until then it tells visitors to
-  use WhatsApp instead, which always works.
-
-## Motion & interactivity
-
-Built with [Framer Motion](https://motion.dev) (the standard animation
-library for React/Next.js — not Angular, which is a separate framework
-and can't be mixed into this stack):
-
-- **Hero** — one orchestrated entrance sequence (headline, copy, buttons
-  and photo animate in as a set, once, on page load).
-- **Destination cards** — 3D flip on hover/tap/keyboard, revealing the
-  tagline and a WhatsApp CTA on the back face.
-- **Service cards** — animate in/out when the category filter changes.
-- **Section headers** — a gentle fade-up the first time each scrolls
-  into view.
-- **WhatsApp button** — soft pulsing ring plus a hover/tap bounce.
-
-All motion respects `prefers-reduced-motion` automatically.
-
-## Project structure
-
-```
-app/            Next.js App Router — layout, homepage, global styles
-components/     One component per section (Header, Hero, Services, ...)
-lib/data.ts     Editable content: services, destinations, FAQs, etc.
-lib/site-config.ts   Reads business details from environment variables
-```
+Then open http://localhost:8000.
 
 ## Deploying
 
-Push this to GitHub and import it on [Vercel](https://vercel.com) (or
-any Next.js host) — set the same environment variables there under
-Project Settings → Environment Variables, matching `.env.example`.
+Any static host works — pick whichever is easiest for you:
 
-## Build
+- **Netlify** — drag the whole folder onto https://app.netlify.com/drop
+- **GitHub Pages** — push this folder to a repo, enable Pages in repo
+  Settings → Pages, pointing at the branch/folder
+- **cPanel / shared hosting** — upload the contents of this folder into
+  `public_html` (or your domain's web root) via FTP or File Manager
 
-```bash
-npm run build
-npm run start
+No environment variables, no build command, no `node_modules` — the
+files here are the actual site.
+
+## Business details
+
+Real Akwantufuo Travel Consult details are already in the HTML:
+
+- Address: 3 Police Station Road, Opposite ECG, Agona Swedru, Central
+  Region, Ghana (Digital GPS: CO-0007-2404)
+- Phone: +233 33 209 7330 / +233 50 928 1975
+- Email: akwantufuo@outlook.com
+- Working hours: Mon–Fri 8am–5pm, Sat 9am–2pm, Sun closed
+
+To change any of these, use your editor's find-and-replace across all
+four `.html` files — there's no central config file in a plain-HTML
+site, so each mention is written out directly.
+
+**WhatsApp number**: set once, at the top of `js/main.js`:
+
+```js
+const WHATSAPP_NUMBER = "233509281975"; // digits only, country code first
 ```
+
+Every "Chat on WhatsApp" / "Ask about [destination]" link on the site
+builds its link from this one constant.
+
+## Things to still swap in
+
+- **Testimonials** — search `index.html` for `[Client testimonial goes
+  here` and replace the three placeholder cards with real client quotes
+  once collected.
+- **Photos** — all images are hotlinked from Unsplash for now. To use
+  your own, save them somewhere (e.g. an `images/` folder next to this
+  README) and swap the `src="..."` values in `index.html`.
+- **Contact form** — currently posts to a placeholder Formspree URL.
+  Sign up at https://formspree.io, create a form, and replace
+  `REPLACE_WITH_YOUR_FORM_ID` in the `<form action="...">` line inside
+  `index.html` with your real form ID. Until then, the form tells
+  visitors it isn't connected and points them to WhatsApp instead.
+- **Social links** — Facebook/TikTok/LinkedIn links currently point at
+  generic homepages. Search and replace with your real profile URLs
+  (they appear in the top bar and the footer).
+- **Legal pages** — `terms.html`, `privacy.html`, `refund.html` have
+  starter wording, clearly marked as a placeholder. Have a lawyer
+  review before relying on it.
+
+## Browser support
+
+Built with standard CSS custom properties, `IntersectionObserver` and
+`fetch` — works in all current browsers (Chrome, Safari, Firefox,
+Edge). No polyfills needed for anything released in the last several
+years.
