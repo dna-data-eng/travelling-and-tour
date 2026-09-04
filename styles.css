@@ -770,6 +770,7 @@ button {
 
 .flip-card {
   perspective: 1400px;
+  -webkit-perspective: 1400px;
   aspect-ratio: 4 / 3;
 }
 
@@ -779,6 +780,7 @@ button {
   height: 100%;
   transition: transform 0.7s var(--ease);
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   border-radius: var(--radius);
 }
 
@@ -786,12 +788,17 @@ button {
 .flip-card:focus-within .flip-card-inner,
 .flip-card.is-flipped .flip-card-inner {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .flip-card-face {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
@@ -829,6 +836,7 @@ button {
 
 .flip-card-back {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
   background: var(--ink);
   color: var(--text-on-ink);
   padding: 26px;
@@ -1137,7 +1145,7 @@ button {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  gap: 10px;
 }
 
 .gallery-item {
