@@ -65,24 +65,6 @@ filterButtons.forEach((btn) => {
   });
 });
 
-// ---------------- Flip cards (destinations) ----------------
-document.querySelectorAll(".flip-card").forEach((card) => {
-  function toggleFlip(e) {
-    // Let the WhatsApp link on the back face work without re-toggling.
-    if (e.target.closest("a")) return;
-    const flipped = card.classList.toggle("is-flipped");
-    card.setAttribute("aria-pressed", String(flipped));
-  }
-  card.addEventListener("click", toggleFlip);
-  card.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      const flipped = card.classList.toggle("is-flipped");
-      card.setAttribute("aria-pressed", String(flipped));
-    }
-  });
-});
-
 // ---------------- Eligibility quiz ----------------
 const quizCard = document.getElementById("quizCard");
 if (quizCard) {
