@@ -36,6 +36,16 @@ if (navToggle && mobileNavLinks) {
   });
 }
 
+// ---------------- Header scroll shadow ----------------
+const siteHeader = document.getElementById("site-header");
+if (siteHeader) {
+  const updateHeaderState = () => {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+  updateHeaderState();
+  window.addEventListener("scroll", updateHeaderState, { passive: true });
+}
+
 // ---------------- Service filter ----------------
 const filterButtons = document.querySelectorAll("#serviceFilters .filter-btn");
 const serviceCards = document.querySelectorAll("#servicesGrid .service-card");
@@ -50,20 +60,123 @@ filterButtons.forEach((btn) => {
       const match = filter === "all" || card.getAttribute("data-category") === filter;
       if (match) {
         card.style.display = "";
+        // Let the browser register the display change before animating in,
+        // so the transition actually plays instead of jumping straight to visible.
         requestAnimationFrame(() => {
-          card.style.opacity = "1";
-          card.style.transform = "scale(1)";
+          requestAnimationFrame(() => card.classList.remove("is-filtered-out"));
         });
       } else {
-        card.style.opacity = "0";
-        card.style.transform = "scale(0.94)";
+        card.classList.add("is-filtered-out");
         setTimeout(() => {
-          if (card.style.opacity === "0") card.style.display = "none";
-        }, 220);
+          if (card.classList.contains("is-filtered-out")) card.style.display = "none";
+        }, 260);
       }
     });
   });
 });
+
+// ---------------- Detail modal (services, destinations, gallery) ----------------
+const modalOverlay = document.getElementById("modalOverlay");
+
+if (modalOverlay) {
+  const modalMediaContent = document.getElementById("modalMediaContent");
+  const modalClose = document.getElementById("modalClose");
+  const modalKicker = document.getElementById("modalKicker");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDesc = document.getElementById("modalDesc");
+  const modalCta = document.getElementById("modalCta");
+  let lastFocused = null;
+
+  function openModal({ image, icon, kicker, title, desc, msg }) {
+    lastFocused = document.activeElement;
+
+    // Media area: a real photo for destinations/gallery, or a big icon
+    // on a solid panel for services (which don't have their own photo).
+    if (image) {
+      modalMediaContent.innerHTML = `<img src="${image}" alt="${title}">`;
+    } else if (icon) {
+      modalMediaContent.innerHTML = `<div class="modal-media-icon">${icon}</div>`;
+    } else {
+      modalMediaContent.innerHTML = "";
+    }
+
+    modalKicker.textContent = kicker || "";
+    modalKicker.style.display = kicker ? "" : "none";
+    modalTitle.textContent = title || "";
+    modalDesc.textContent = desc || "";
+
+    if (msg) {
+      modalCta.style.display = "";
+      modalCta.setAttribute("href", whatsappLink(msg));
+    } else {
+      modalCta.style.display = "none";
+    }
+
+    modalOverlay.classList.add("is-open");
+    modalOverlay.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    modalClose.focus();
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove("is-open");
+    modalOverlay.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    if (lastFocused && typeof lastFocused.focus === "function") {
+      lastFocused.focus();
+    }
+  }
+
+  modalClose.addEventListener("click", closeModal);
+
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modalOverlay.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
+
+  // Service cards → modal with icon banner + long description + WhatsApp CTA
+  document.querySelectorAll(".service-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      openModal({
+        icon: card.getAttribute("data-icon"),
+        kicker: "Service",
+        title: card.getAttribute("data-title"),
+        desc: card.getAttribute("data-desc"),
+        msg: card.getAttribute("data-msg"),
+      });
+    });
+  });
+
+  // Destination cards → modal with full photo + long description + WhatsApp CTA
+  document.querySelectorAll(".destination-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      openModal({
+        image: card.getAttribute("data-image"),
+        kicker: "Destination",
+        title: card.getAttribute("data-title"),
+        desc: card.getAttribute("data-desc"),
+        msg: card.getAttribute("data-msg"),
+      });
+    });
+  });
+
+  // Gallery items → lightbox mode: bigger photo, no WhatsApp CTA
+  document.querySelectorAll(".gallery-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      openModal({
+        image: item.getAttribute("data-image"),
+        kicker: "Gallery",
+        title: item.getAttribute("data-title"),
+        desc: "",
+      });
+    });
+  });
+}
 
 // ---------------- Eligibility quiz ----------------
 const quizCard = document.getElementById("quizCard");
