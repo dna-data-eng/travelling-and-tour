@@ -865,20 +865,32 @@ section[id] {
   font-size: 0.88rem;
   cursor: pointer;
   color: var(--text);
-  transition: background 0.2s var(--ease), color 0.2s var(--ease),
-    border-color 0.2s var(--ease);
+  transition: background 0.25s var(--ease), color 0.25s var(--ease),
+    border-color 0.25s var(--ease), transform 0.2s var(--ease),
+    box-shadow 0.25s var(--ease);
 }
 
-.filter-btn.is-active,
 .filter-btn:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-btn.is-active {
   background: var(--ink);
   border-color: var(--ink);
   color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.filter-btn:active {
+  transform: translateY(0) scale(0.96);
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+  justify-content: center;
   gap: 18px;
 }
 
@@ -896,8 +908,10 @@ section[id] {
   font: inherit;
   color: inherit;
   box-shadow: var(--shadow-sm);
-  transition: border-color 0.25s var(--ease), transform 0.35s var(--ease),
-    box-shadow 0.35s var(--ease), opacity 0.28s var(--ease);
+  transition: border-color 0.25s var(--ease),
+    transform 0.45s var(--ease), box-shadow 0.35s var(--ease),
+    opacity 0.4s var(--ease);
+  transition-delay: var(--fd, 0s);
 }
 
 .service-card:hover,
@@ -905,12 +919,14 @@ section[id] {
   border-color: var(--stamp);
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
+  transition-delay: 0s;
 }
 
 .service-card.is-filtered-out {
   opacity: 0;
-  transform: scale(0.94);
+  transform: translateY(18px) scale(0.92);
   pointer-events: none;
+  transition-delay: 0s;
 }
 
 .service-icon {
@@ -933,14 +949,9 @@ section[id] {
   font-size: 0.88rem;
 }
 
-@media (max-width: 960px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 @media (max-width: 560px) {
   .services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -1053,6 +1064,16 @@ section[id] {
 }
 
 .blog-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -1062,7 +1083,8 @@ section[id] {
     border-color 0.25s var(--ease);
 }
 
-.blog-card:hover {
+.blog-card:hover,
+.blog-card:focus-visible {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
   border-color: var(--line);

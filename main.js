@@ -56,9 +56,16 @@ filterButtons.forEach((btn) => {
     btn.classList.add("is-active");
     const filter = btn.getAttribute("data-filter");
 
+    let visibleIndex = 0;
+
     serviceCards.forEach((card) => {
       const match = filter === "all" || card.getAttribute("data-category") === filter;
       if (match) {
+        // Stagger each newly-visible card's entrance so they cascade in
+        // one after another instead of all fading in at once.
+        card.style.setProperty("--fd", `${visibleIndex * 0.06}s`);
+        visibleIndex += 1;
+
         card.style.display = "";
         // Let the browser register the display change before animating in,
         // so the transition actually plays instead of jumping straight to visible.
@@ -69,7 +76,7 @@ filterButtons.forEach((btn) => {
         card.classList.add("is-filtered-out");
         setTimeout(() => {
           if (card.classList.contains("is-filtered-out")) card.style.display = "none";
-        }, 260);
+        }, 300);
       }
     });
   });
@@ -173,6 +180,19 @@ if (modalOverlay) {
         kicker: "Gallery",
         title: item.getAttribute("data-title"),
         desc: "",
+      });
+    });
+  });
+
+  // Blog cards → modal with full photo + expanded article + WhatsApp CTA
+  document.querySelectorAll(".blog-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      openModal({
+        image: card.getAttribute("data-image"),
+        kicker: card.getAttribute("data-kicker"),
+        title: card.getAttribute("data-title"),
+        desc: card.getAttribute("data-desc"),
+        msg: card.getAttribute("data-msg"),
       });
     });
   });
