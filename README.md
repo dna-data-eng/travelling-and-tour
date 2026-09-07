@@ -11,14 +11,21 @@ terms.html      Terms & Conditions (placeholder — see note below)
 privacy.html    Privacy Policy (placeholder)
 refund.html     Refund Policy (placeholder)
 styles.css      All styling (design tokens, layout, components)
-main.js         All interactivity (nav, filters, flip cards, quiz,
+main.js         All interactivity (nav, filters, card modals, quiz,
                 estimator, FAQ accordion, contact form, WhatsApp
                 links, activity toast, scroll-reveal animation)
+media/          Video clips + poster thumbnails for the "A Look
+                Inside" gallery section
 ```
 
-Everything sits in **one flat folder** — no subfolders. Keep all
-seven files together in the same place, however you move or upload
-them, and it'll always work.
+All seven top-level files sit in **one flat folder** — no
+subfolders needed for those. The one exception is `media/`, which
+**must stay as an actual subfolder** right next to `index.html` (not
+flattened) — the video gallery cards load their files from
+`media/video-*.mp4` and `media/poster-*.jpg`, so if that folder gets
+separated from `index.html` during upload, the gallery videos won't
+play. If you extract this as a zip, just keep everything exactly as
+it unzips — don't move files out of `media/`.
 
 ## Running it locally
 
@@ -71,6 +78,27 @@ const WHATSAPP_NUMBER = "233509281975"; // digits only, country code first
 
 Every "Chat on WhatsApp" / "Ask about [destination]" link on the site
 builds its link from this one constant.
+
+## Video gallery
+
+The "A Look Inside" gallery section plays 6 real client videos
+instead of stock photos — arrivals, airport pickup, and client
+testimonials filmed abroad. Each card shows a poster thumbnail;
+clicking it opens the same modal used for services/destinations, now
+playing the actual video with sound and controls.
+
+The videos were re-compressed for the web (H.264, capped at 960px on
+the long edge, ~25MB total across all 6) so they load reasonably fast
+and don't blow past GitHub's file-size limits. To swap any of them
+out later:
+
+1. Replace the file in `media/` (keep the same filename, or update
+   the `data-video` and `src` attributes in `index.html` to match a
+   new filename)
+2. Generate a matching poster thumbnail — a still frame works fine,
+   e.g. `ffmpeg -ss 3 -i your-video.mp4 -frames:v 1 -vf "scale=800:-1" poster.jpg`
+3. Update the `data-poster` attribute and the `<img src>` inside that
+   gallery card to point at the new poster
 
 ## Things to still swap in
 

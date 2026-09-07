@@ -94,12 +94,14 @@ if (modalOverlay) {
   const modalCta = document.getElementById("modalCta");
   let lastFocused = null;
 
-  function openModal({ image, icon, kicker, title, desc, msg }) {
+  function openModal({ image, video, poster, icon, kicker, title, desc, msg }) {
     lastFocused = document.activeElement;
 
-    // Media area: a real photo for destinations/gallery, or a big icon
-    // on a solid panel for services (which don't have their own photo).
-    if (image) {
+    // Media area: a playable video, a real photo for destinations/gallery,
+    // or a big icon on a solid panel for services (no photo of their own).
+    if (video) {
+      modalMediaContent.innerHTML = `<video src="${video}" poster="${poster || ""}" controls autoplay playsinline webkit-playsinline="true"></video>`;
+    } else if (image) {
       modalMediaContent.innerHTML = `<img src="${image}" alt="${title}">`;
     } else if (icon) {
       modalMediaContent.innerHTML = `<div class="modal-media-icon">${icon}</div>`;
@@ -111,6 +113,7 @@ if (modalOverlay) {
     modalKicker.style.display = kicker ? "" : "none";
     modalTitle.textContent = title || "";
     modalDesc.textContent = desc || "";
+    modalDesc.style.display = desc ? "" : "none";
 
     if (msg) {
       modalCta.style.display = "";
@@ -129,6 +132,13 @@ if (modalOverlay) {
     modalOverlay.classList.remove("is-open");
     modalOverlay.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
+
+    // Stop any playing video instead of letting it run on in the background.
+    const playingVideo = modalMediaContent.querySelector("video");
+    if (playingVideo) {
+      playingVideo.pause();
+    }
+
     if (lastFocused && typeof lastFocused.focus === "function") {
       lastFocused.focus();
     }
@@ -172,11 +182,14 @@ if (modalOverlay) {
     });
   });
 
-  // Gallery items → lightbox mode: bigger photo, no WhatsApp CTA
+  // Gallery items → modal with real video playback, no WhatsApp CTA
   document.querySelectorAll(".gallery-item").forEach((item) => {
     item.addEventListener("click", () => {
+      const video = item.getAttribute("data-video");
       openModal({
-        image: item.getAttribute("data-image"),
+        video: video || null,
+        image: video ? null : item.getAttribute("data-image"),
+        poster: item.getAttribute("data-poster"),
         kicker: "Gallery",
         title: item.getAttribute("data-title"),
         desc: "",
